@@ -20,14 +20,14 @@ const SingleCar = (props) => {
           type="primary"
           content="Custom Order"
           onPress={() => {
-            console.warn("custom order");
+            // console.warn("custom order");
           }}
         />
         <StyledButton
           type="secondary"
           content="View Inventory"
           onPress={() => {
-            console.warn("inventory");
+            // console.warn("inventory");
           }}
         />
       </View>
