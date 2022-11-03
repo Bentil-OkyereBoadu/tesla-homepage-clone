@@ -1,11 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
+import { StyleSheet, View, FlatList, Dimensions } from 'react-native';
+import SingleCar from './components/CarItem/SingleCar';
+import cars from './assets/tesla/cars';
+import Header from './components/Header';
 export default function App() {
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <Header/>
+       <FlatList
+       data={cars}
+       renderItem={(item) => <SingleCar car={item}/>}
+       style={{
+        width: '100%',
+       }}
+       snapToAlignment={'start'}
+       decelerationRate={'fast'}
+       snapToInterval={Dimensions.get('window').height}
+       showsVerticalScrollIndicator={false}
+        />
+        <StatusBar style='auto'/>
     </View>
   );
 }
@@ -13,8 +27,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#ffffff',
     alignItems: 'center',
     justifyContent: 'center',
+   
   },
 });
